@@ -4,7 +4,7 @@ import React from 'react'
 export default function App() {
   return (
     <View>
-      <Text>Done</Text>
+      <Text style={{color:'Blue'}}>Done</Text>
     </View>
   )
 }
