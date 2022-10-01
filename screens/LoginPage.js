@@ -16,7 +16,7 @@ export default function LoginPage() {
 const Example = () => {
     return <Center w="100%">
         <Image alt='Avatar' 
-            style={{width:150,height:150,marginTop:20}}
+            style={{height:200,width:200,marginTop:20}}
         source={require('../assets/avatar.png')}/>
         <Box safeArea p="2" py="8" w="90%" maxW="290">
             <Heading size="lg" fontWeight="600" color="coolGray.800" _dark={{
