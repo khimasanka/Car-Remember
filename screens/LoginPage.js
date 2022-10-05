@@ -5,16 +5,10 @@ import {
 
 import React from 'react'
 
-export default function LoginPage() {
+export default function LoginPage({navigation}) {
     return (
         <NativeBaseProvider>
-            <Example />
-        </NativeBaseProvider>
-    )
-}
-
-const Example = () => {
-    return <Center w="100%">
+            <Center w="100%">
         <Image alt='Avatar' 
             style={{height:200,width:200,marginTop:20}}
         source={require('../assets/avatar.png')}/>
@@ -46,7 +40,9 @@ const Example = () => {
                         Forget Password?
                     </Link>
                 </FormControl>
-                <Button mt="2" colorScheme="indigo">
+                <Button mt="2" colorScheme="indigo" onPress={()=>{
+                    navigation.navigate("Register")
+                }} >
                     Sign in
                 </Button>
                 <HStack mt="6" justifyContent="center">
@@ -59,11 +55,16 @@ const Example = () => {
                         color: "indigo.500",
                         fontWeight: "medium",
                         fontSize: "sm"
-                    }} href="#">
+                    }}
+                    onPress={()=>{
+                        navigation.navigate("Register")
+                    }} >
                         Sign Up
                     </Link>
                 </HStack>
             </VStack>
         </Box>
-    </Center>;
-};
+    </Center>
+        </NativeBaseProvider>
+    )
+}

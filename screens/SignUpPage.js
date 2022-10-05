@@ -1,32 +1,30 @@
 import React from 'react'
-import {  NativeBaseProvider, Text, Button, Center, Box, Heading, VStack, FormControl, Input
-     } from 'native-base';
+import {
+  NativeBaseProvider, Image, Button, Center, Box, Heading, VStack, FormControl, Input
+} from 'native-base';
 
 export default function SignUpPage() {
   return (
     <NativeBaseProvider>
-      <Example/>
-    </NativeBaseProvider>
-  )
-}
-
-const Example = () => {
-    return <Center w="100%">
-        <Box safeArea p="2" w="90%" maxW="290" py="8">
+      <Center w="100%">
+        <Image alt='Avatar'
+          style={{ height: 150, width: 150, marginTop: 70}}
+          source={require('../assets/register.png')} />
+        <Box safeArea p="2" w="90%" maxW="290" py="8" marginBottom={200}>
           <Heading size="lg" color="coolGray.800" _dark={{
-          color: "warmGray.50"
-        }} fontWeight="semibold">
+            color: "warmGray.50"
+          }} fontWeight="semibold">
             Welcome
           </Heading>
           <Heading mt="1" color="coolGray.600" _dark={{
-          color: "warmGray.200"
-        }} fontWeight="medium" size="xs">
+            color: "warmGray.200"
+          }} fontWeight="medium" size="xs">
             Sign up to continue!
           </Heading>
           <VStack space={3} mt="5">
             <FormControl>
               <FormControl.Label>Email</FormControl.Label>
-              <Input />
+              <Input placeholder='xxx@email.com'/>
             </FormControl>
             <FormControl>
               <FormControl.Label>Password</FormControl.Label>
@@ -41,5 +39,7 @@ const Example = () => {
             </Button>
           </VStack>
         </Box>
-      </Center>;
-  };
+      </Center>
+    </NativeBaseProvider>
+  )
+}
