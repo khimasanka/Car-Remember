@@ -2,11 +2,15 @@ import {
     NativeBaseProvider, Text, Button, Center, Box, Heading, VStack, FormControl, Input
     , Link, HStack, Image
 } from 'native-base';
-import {React,useState} from 'react'
+import {React,useContext,useState} from 'react'
+import { AuthContext } from '../context/AuthContext';
 
 export default function LoginPage({ navigation }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const val = useContext(AuthContext);
+
     return (
         <NativeBaseProvider>
             <Center w="100%">
@@ -26,6 +30,7 @@ export default function LoginPage({ navigation }) {
                     </Heading>
 
                     <VStack space={3} mt="5">
+                        <Text>{val}</Text>
                         <FormControl>
                             <FormControl.Label>Email ID</FormControl.Label>
                             <Input value={email} onChangeText={text => setEmail(text)}/>

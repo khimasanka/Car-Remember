@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import {
-  NativeBaseProvider, Image, Button, Center, Box, Heading, VStack, FormControl, Input
+  NativeBaseProvider, Image, Text, Button, Center, Box, Heading, VStack, FormControl, Input
 } from 'native-base';
+import { AuthContext } from '../context/AuthContext';
 
 export default function SignUpPage({ navigation }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirm, setConfirm] = useState('');
+  const val = useContext(AuthContext);
   return (
     <NativeBaseProvider>
       <Center w="100%">
@@ -23,19 +28,24 @@ export default function SignUpPage({ navigation }) {
           </Heading>
           <VStack space={3} mt="5">
             <FormControl>
+              <Text>{val}</Text>
               <FormControl.Label>Email</FormControl.Label>
-              <Input placeholder='xxx@email.com' />
+              <Input placeholder='xxx@email.com' value={email} onChangeText={text => setEmail(text)} />
             </FormControl>
             <FormControl>
               <FormControl.Label>Password</FormControl.Label>
-              <Input type="password" />
+              <Input type="password" value={password} onChangeText={text => setPassword(text)} />
             </FormControl>
             <FormControl>
               <FormControl.Label>Confirm Password</FormControl.Label>
-              <Input type="password" />
+              <Input type="password" value={confirm} onChangeText={text => setConfirm(text)} />
             </FormControl>
             <Button mt="2" colorScheme="indigo"
-              onPress={() => { navigation.navigate("Login") }}>
+              onPress={() => {
+                console.log(email);
+                console.log(password);
+                console.log(confirm);
+              }}>
               Sign up
             </Button>
           </VStack>
