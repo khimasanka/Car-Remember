@@ -42,9 +42,7 @@ export default function SignUpPage({ navigation }) {
             </FormControl>
             <Button mt="2" colorScheme="indigo"
               onPress={() => {
-                console.log(email);
-                console.log(password);
-                console.log(confirm);
+                
               }}>
               Sign up
             </Button>
