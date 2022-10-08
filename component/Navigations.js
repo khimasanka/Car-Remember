@@ -4,6 +4,7 @@ import SignUpPage from '../screens/SignUpPage';
 import LoginPage from '../screens/LoginPage';
 import CarList from '../screens/CarList'
 import { createStackNavigator } from '@react-navigation/stack';
+import CarsCRUD from '../screens/CarsCRUD';
 
 const Stack = createStackNavigator();
 
@@ -11,9 +12,9 @@ export default function Navigations() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Cars" component={CarList}/>
+
                 <Stack.Screen name="Login" component={LoginPage} options={{
-                    headerShown:false
+                    headerShown: false
                 }} />
 
                 <Stack.Screen name="Register" component={SignUpPage} options={{
@@ -26,7 +27,7 @@ export default function Navigations() {
                         fontWeight: '900',
                     },
                 }} />
-
+                <Stack.Screen name="Cars" component={CarsCRUD} />
             </Stack.Navigator>
         </NavigationContainer>
     );
