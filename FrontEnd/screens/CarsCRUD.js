@@ -138,35 +138,41 @@ export default function AddData({ navigation }) {
 
           <Center w="100%">
             <Box safeArea p="2" py="8" w="90%" maxW="290">
-              <Heading size="lg" fontWeight="600" color="coolGray.800" _dark={{
+              <Heading size="lg" fontFamily={'FredokaOne-Regular'} fontWeight="600" color="coolGray.800" _dark={{
                 color: "warmGray.50"
               }}>
                 Save car
               </Heading>
-              <Heading mt="1" _dark={{
+              <Heading mt="1" fontFamily={'FredokaOne-Regular'} _dark={{
                 color: "warmGray.200"
               }} color="coolGray.600" fontWeight="medium" size="xs">
                 Upload Photo!
               </Heading>
 
               <HStack alignItems={'center'}>
-                <Button style={{ height: 35, width: 80 }} onPress={openGallery} size="sm" mr={10} variant={"solid"} px="5">
-                  <Text style={{ color: 'white', fontWeight: 'bold' }}>Upload</Text>
+                <Button style={{ height: 35, width: 80 }} onPress={openGallery} size="sm"  mr={10} variant={"solid"} px="5">
+                  <Text style={{ color: 'white', fontWeight: 'bold', fontFamily: 'FredokaOne-Regular' }}>Upload</Text>
                 </Button>
                 <Image style={{ width: 150, height: 150, borderRadius: 25 }} source={selectedImage} />
               </HStack>
 
               <VStack space={3} mt="5">
                 <FormControl>
-                  <FormControl.Label>Car Name</FormControl.Label>
-                  <Input style={{borderColor:"#139DAE",borderRadius:1,borderWidth:1}}  value={vehiclename} placeholder="Vehicle" variant="filled" onChangeText={(e) => { setvehiclename(e) }} />
+                  <FormControl.Label _text={{
+                    fontFamily: 'FredokaOne-Regular'
+                  }}>Car Name</FormControl.Label>
+                  <Input style={{ borderColor: "#139DAE", borderRadius: 1, borderWidth: 1 }} value={vehiclename} placeholder="Vehicle" variant="filled" onChangeText={(e) => { setvehiclename(e) }} />
                 </FormControl>
                 <FormControl>
-                  <FormControl.Label>Price</FormControl.Label>
-                  <Input style={{borderColor:"#139DAE",borderRadius:1,borderWidth:1}} value={price} placeholder="Price" variant="filled" onChangeText={(e) => { setprice(e) }} />
+                  <FormControl.Label _text={{
+                    fontFamily: 'FredokaOne-Regular'
+                  }}>Price</FormControl.Label>
+                  <Input style={{ borderColor: "#139DAE", borderRadius: 1, borderWidth: 1 }} value={price} placeholder="Price" variant="filled" onChangeText={(e) => { setprice(e) }} />
 
                 </FormControl>
-                <Button mt="6" borderRadius={25} bgColor={"#139DAE"} colorScheme="#139DAE" onPress={saveData}>
+                <Button _text={{
+                  fontFamily: 'FredokaOne-Regular'
+                }} mt="6" borderRadius={25} bgColor={"#139DAE"} colorScheme="#139DAE" onPress={saveData}>
                   SAVE CAR
                 </Button>
               </VStack>

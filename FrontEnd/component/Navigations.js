@@ -12,22 +12,24 @@ export default function Navigations() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-
+                <Stack.Screen name="Cars" component={CarsCRUD} />
                 <Stack.Screen name="Login" component={LoginPage} options={{
                     headerShown: false
                 }} />
 
                 <Stack.Screen name="Register" component={SignUpPage} options={{
                     title: 'Register',
+                    fontFamily: 'FredokaOne-Regular',
                     headerStyle: {
                         backgroundColor: 'white',
                     },
                     headerTintColor: '#4F3BDF',
                     headerTitleStyle: {
                         fontWeight: '900',
+                        fontFamily: 'FredokaOne-Regular'
                     },
                 }} />
-                <Stack.Screen name="Cars" component={CarsCRUD} />
+
             </Stack.Navigator>
         </NavigationContainer>
     );
