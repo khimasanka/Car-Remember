@@ -15,7 +15,7 @@ export default function LoadData({ navigation }) {
 
     const getCars = () => {
 
-        fetch('http://192.168.8.182:4000/vehicle/')
+        fetch('http://localhost:4000/car/')
             .then((response) => response.json())
             .then((json) => setPosts(json));
 

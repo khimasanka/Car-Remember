@@ -42,9 +42,23 @@ router.delete('/:id', async (req, res) => {
 
 
 
-router.get('/', (req, res) => {
-    res.send('customer get');
-    console.log('done');
+router.get('/login', async(req, res) => {
+    try {
+        console.log('recived');
+       let res = await Users.find();
+       let response = undefined;
+       res.forEach(async (e) => {
+         if ((e.email === req.body.email) & (e.password === req.body.password)) {
+           response = true;
+           console.log('Done');
+         }else{
+            console.log('Error');
+         }
+       });
+       res.json('response',response);
+     } catch (err) {
+       res.json({ message: err });
+     }
 });
 
 module.exports = router

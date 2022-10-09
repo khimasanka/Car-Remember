@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react'
 import {
-  NativeBaseProvider, Image, Text, Button, Center, Box, Heading, VStack, FormControl, Input
+  NativeBaseProvider, Image, Button, Center, Box, Heading, VStack, FormControl, Input, Alert
 } from 'native-base';
 import { AuthContext } from '../context/AuthContext';
+
 
 export default function SignUpPage({ navigation }) {
   const [email, setEmail] = useState('');
@@ -11,8 +12,27 @@ export default function SignUpPage({ navigation }) {
   const [confirm, setConfirm] = useState('');
   const val = useContext(AuthContext);
 
+
   const signUpUser = () => {
-    fetch('')
+    fetch('http://127.0.0.1:4000/user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        name: name,
+        password: password
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
   }
   return (
     <NativeBaseProvider>
@@ -37,19 +57,19 @@ export default function SignUpPage({ navigation }) {
               <FormControl.Label _text={{
                 fontFamily: 'FredokaOne-Regular'
               }}>Email</FormControl.Label>
-              <Input bgColor={'#fafafa'}  placeholder='xxx@email.com' value={email} onChangeText={text => setEmail(text)} />
+              <Input bgColor={'#fafafa'} placeholder='xxx@email.com' value={email} onChangeText={text => setEmail(text)} />
             </FormControl>
             <FormControl>
               <FormControl.Label _text={{
                 fontFamily: 'FredokaOne-Regular'
               }}>Full Name</FormControl.Label>
-              <Input bgColor={'#fafafa'}  placeholder='Walter White' value={name} onChangeText={text => setName(text)} />
+              <Input bgColor={'#fafafa'} placeholder='Walter White' value={name} onChangeText={text => setName(text)} />
             </FormControl>
             <FormControl>
               <FormControl.Label _text={{
                 fontFamily: 'FredokaOne-Regular'
               }}>Password</FormControl.Label>
-              <Input bgColor={'#fafafa'}  type="password" value={password} onChangeText={text => setPassword(text)} />
+              <Input bgColor={'#fafafa'} type="password" value={password} onChangeText={text => setPassword(text)} />
             </FormControl>
             <FormControl>
               <FormControl.Label _text={{
@@ -60,10 +80,10 @@ export default function SignUpPage({ navigation }) {
             <Button _text={{
               fontFamily: 'FredokaOne-Regular',
               fontSize: '15px'
-            }} mt="4"  colorScheme="indigo"
-              onPress={() => {
-                navigation.navigate("Cars")
-              }}>
+            }} mt="4" colorScheme="indigo" onPress={()=>{
+              navigation.navigate("Cars")
+            }}
+             >
               Sign up
             </Button>
           </VStack>

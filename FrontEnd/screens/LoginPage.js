@@ -5,11 +5,29 @@ import {
 import { React, useContext, useState } from 'react'
 import { AuthContext } from '../context/AuthContext';
 
+
 export default function LoginPage({ navigation }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const val = useContext(AuthContext);
+
+    const login = () => {
+        fetch('http://127.0.0.1:4000/user/login', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password,
+            }),
+        })
+        .then((response) => {
+            Alert.alert("Save Success !")
+          })
+          .catch((err) => { Alert.alert("Error occured..!") });
+    }
 
     return (
         <NativeBaseProvider>
@@ -51,13 +69,10 @@ export default function LoginPage({ navigation }) {
                                 Forget Password?
                             </Link>
                         </FormControl>
-                        <Button mt="2" _text={{
+                        <Button onPress={login} mt="2" _text={{
                             fontFamily: 'FredokaOne-Regular',
                             fontSize: 15
-                        }} colorScheme="indigo" onPress={() => {
-                            console.log(password);
-                            console.log(email);
-                        }} >
+                        }} colorScheme="indigo"  >
                             Sign in
                         </Button>
                         <HStack mt="6" justifyContent="center">

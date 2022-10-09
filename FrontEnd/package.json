@@ -2,8 +2,10 @@
   "name": "CarRemember",
   "version": "0.0.1",
   "private": true,
-  "rnpm":{
-    "assets":["./assets/fonts/"]
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
   },
   "scripts": {
     "android": "react-native run-android",

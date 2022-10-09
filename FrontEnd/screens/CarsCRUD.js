@@ -150,7 +150,7 @@ export default function AddData({ navigation }) {
               </Heading>
 
               <HStack alignItems={'center'}>
-                <Button style={{ height: 35, width: 80 }} onPress={openGallery} size="sm"  mr={10} variant={"solid"} px="5">
+                <Button style={{ height: 35, width: 85 }} onPress={openGallery} size="sm"  mr={10} variant={"solid"} px="5">
                   <Text style={{ color: 'white', fontWeight: 'bold' }}>Upload</Text>
                 </Button>
                 <Image style={{ width: 150, height: 150, borderRadius: 25 }} source={selectedImage} />
