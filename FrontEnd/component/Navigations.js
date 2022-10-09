@@ -12,7 +12,7 @@ export default function Navigations() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Cars" component={CarsCRUD} />
+
                 <Stack.Screen name="Login" component={LoginPage} options={{
                     headerShown: false
                 }} />
@@ -29,7 +29,7 @@ export default function Navigations() {
                         fontFamily: 'FredokaOne-Regular'
                     },
                 }} />
-
+                <Stack.Screen name="Cars" component={CarsCRUD} />
             </Stack.Navigator>
         </NavigationContainer>
     );

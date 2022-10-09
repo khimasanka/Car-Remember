@@ -146,12 +146,12 @@ export default function AddData({ navigation }) {
               <Heading mt="1" fontFamily={'FredokaOne-Regular'} _dark={{
                 color: "warmGray.200"
               }} color="coolGray.600" fontWeight="medium" size="xs">
-                Upload Photo!
+                Upload Photo !
               </Heading>
 
               <HStack alignItems={'center'}>
                 <Button style={{ height: 35, width: 80 }} onPress={openGallery} size="sm"  mr={10} variant={"solid"} px="5">
-                  <Text style={{ color: 'white', fontWeight: 'bold', fontFamily: 'FredokaOne-Regular' }}>Upload</Text>
+                  <Text style={{ color: 'white', fontWeight: 'bold' }}>Upload</Text>
                 </Button>
                 <Image style={{ width: 150, height: 150, borderRadius: 25 }} source={selectedImage} />
               </HStack>
